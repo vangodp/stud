@@ -79,7 +79,7 @@ covid19* Inserir_no_Fim(covid19 *Lista,char p[20],int x,int y,int i,int j) {
         aux=aux->prox;
         aux->prox=novo_no;
     }
-    return Lista;
+    return Lista; 
 }
 
 /*Funçao que impime a Lista*/
