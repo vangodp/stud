@@ -68,7 +68,19 @@ covid19* Inserir_no_Meio(covid19 *Lista,char p[20],int x,int y,int i,int j) {
 
 
 /*Funçao que insere um nó no final da Lista*/
-covid19* Inserir_no_Fim(Lista* lista,char p[20],int x,int y,int i,int j);
+covid19* Inserir_no_Fim(covid19 *Lista,char p[20],int x,int y,int i,int j) {
+    covid19* novo_no= CriarLista(p,x,y,i,j);
+    if(novo_no==NULL)
+        return Lista;
+    if(Lista==NULL)
+        return novo_no;
+    covid19 *aux=Lista;
+    while(aux->prox!=NULL) {
+        aux=aux->prox;
+        aux->prox=novo_no;
+    }
+    return Lista;
+}
 
 /*Funçao que impime a Lista*/
 void imprimirLista(covid19 *Lista) {
