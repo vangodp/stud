@@ -10,29 +10,17 @@ int main() {
     setlocale(LC_ALL, "Portuguese");
     Lista lista = NULL;
     covid19 dados;
-
-
-
-    inserir_no_Fim(&lista, dados);
-
-    getchar();
-
-
-
+    
     bool sair = false;
     while (!sair){
         switch (menu()) {
-            case 1: informacaoCovid(); break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4: 
-                break;
-            case 0: sair = true; break;
-
-            default:
-                break;
+            case 1: informacaoCovid();             break;
+            case 2:                                break;
+            case 3:                                break;
+            case 4: inserir_no_Fim(&lista, dados); break;
+            case 5: mostrarLista(lista);           break;
+            case 0: sair = true;                   break;
+            default:                               break;
         }
     }
 
