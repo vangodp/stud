@@ -10,16 +10,11 @@ int main() {
     setlocale(LC_ALL, "Portuguese");
     Lista lista = NULL;
     covid19 dados;
-    covid19 dest;
-    strcpy( dados.pais, "Espanha");
-    dados.casos = 20000;
-    dados.recuperados = 8000;
-    dados.obitos = 100;
-    dados.casos_ativos = -1;
-    dados.prox = NULL;
-    copia(dados, &dest);
 
-    imprime(dest);
+
+
+    inserir_no_Fim(&lista, dados);
+
     getchar();
 
 
@@ -44,7 +39,7 @@ int main() {
 
 
 
-
+    free(lista);
     return 0;
 }
 

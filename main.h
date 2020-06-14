@@ -5,6 +5,8 @@
 #ifndef ANDRAH_PROJETO2_MAIN_H
 #define ANDRAH_PROJETO2_MAIN_H
 
+#include <stdbool.h>
+
 typedef struct No covid19;
 typedef struct No* Lista;
 
@@ -23,10 +25,10 @@ void     informacaoCovid    ();
 void     imprime            (covid19 c);
 void     copia              (covid19  fonte, covid19* destino);
 void     imprimirLista      (covid19 *Lista);
-covid19* CriarLista         (covid19);
+bool     criarLista         (Lista*  lista);
 covid19* inserir_no_Inicio  (Lista*, covid19);
 covid19* inserir_no_Meio    (Lista*, covid19);
-covid19* inserir_no_Fim     (Lista*, covid19);
+void     inserir_no_Fim     (Lista*, covid19);
 covid19 *removerInicio      (Lista*, covid19);
 covid19 *remover_Fim        (Lista*, covid19);
 

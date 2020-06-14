@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 #include "main.h"
 
 void copia(covid19 fonte, covid19* destino){
@@ -24,28 +25,21 @@ void imprime(covid19 c){
 }
 
 
-/*Função que Cria a Lista */
-covid19* criarLista(covid19 dados) {
-    /*criamos um novo Nó*/
-    covid19 *novo = (covid19*)malloc(sizeof(covid19)); /*Permite alocar o conjunto de Bytes para a Lista*/
 
-    /*Comprovamos se o nó apnta para a memoria reservada*/
-    if(novo==NULL)
-        return NULL;
-
-    /* atribuimos os dados a novo*/
-    strcpy(
-    novo->pais         ,dados.pais);
-    novo->casos        =dados.casos;
-    novo->recuperados  =dados.recuperados;
-    novo->obitos       =dados.obitos;
-    novo->casos_ativos =dados.casos_ativos;
-    novo->prox         =NULL;
-    return novo;
+bool criarLista(Lista* lista) {
+    if(*lista == NULL){
+        *lista = (Lista)malloc(sizeof(Lista));
+        return true;
+    }
+    return false;
 }
 
-/*Funçao que insere um nó no final da Lista*/
-covid19* inserir_no_Fim(Lista* lista, covid19 dados) {
-    covid19 *novo_no = criarLista(dados);
+
+void inserir_no_Fim(Lista* lista, covid19 dados) {
+    if ( criarLista(&*lista) == true ){
+        puts("Lista criada.");
+        return;
+    }
+    puts("Erro ao criar lista. não foi possivel inserir o dado.");
 
 }
