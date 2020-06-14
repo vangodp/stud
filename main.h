@@ -17,17 +17,18 @@ struct No {
     struct No *prox;
 };
 
-void     limparTela         ();
 int      menu               ();
-void     InformacaoCovid    ();
+void     limparTela         ();
+void     informacaoCovid    ();
+void     imprime            (covid19 c);
+void     copia              (covid19  fonte, covid19* destino);
 void     imprimirLista      (covid19 *Lista);
-covid19* CriarLista         (char p[20],int x,int y,int i,int j);
-covid19* Inserir_no_Inicio  (covid19 *Lista,char p[20],int x,int y,int i,int j);
-covid19* Inserir_no_Meio    (covid19 *Lista,char p[20],int x,int y,int i,int j);
-covid19* Inserir_no_Fim     (Lista* Lista,char p[20],int x,int y,int i,int j);
-covid19 *removerInicio      (covid19 *Lista, char nome[20]);
-covid19 *remover_Fim        (covid19 *Lista,char nome[20]);
-
+covid19* CriarLista         (covid19);
+covid19* inserir_no_Inicio  (Lista*, covid19);
+covid19* inserir_no_Meio    (Lista*, covid19);
+covid19* inserir_no_Fim     (Lista*, covid19);
+covid19 *removerInicio      (Lista*, covid19);
+covid19 *remover_Fim        (Lista*, covid19);
 
 
 

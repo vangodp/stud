@@ -1,27 +1,38 @@
-//
-// Created by user on 10/06/2020.
-//
-
+#include <stdio.h>
+#include <stdlib.h>
 #include <locale.h>
 #include <stdbool.h>
+#include <string.h>
 #include "main.h"
 
 
 int main() {
     setlocale(LC_ALL, "Portuguese");
     Lista lista = NULL;
+    covid19 dados;
+    covid19 dest;
+    strcpy( dados.pais, "Espanha");
+    dados.casos = 20000;
+    dados.recuperados = 8000;
+    dados.obitos = 100;
+    dados.casos_ativos = -1;
+    dados.prox = NULL;
+    copia(dados, &dest);
+
+    imprime(dest);
+    getchar();
 
 
 
     bool sair = false;
     while (!sair){
         switch (menu()) {
-            case 1: InformacaoCovid(); break;
+            case 1: informacaoCovid(); break;
             case 2:
                 break;
             case 3:
                 break;
-            case 4:
+            case 4: 
                 break;
             case 0: sair = true; break;
 
@@ -70,3 +81,12 @@ int menu() {
     return op;
 }
 
+/*Imformações sobre CORONAVÍRUNS(COVID-19)*/
+void informacaoCovid() {
+    system("COLOR 0F");
+    printf("\nA Organização Mundial da Saúde (OMS) declarou,em 30 de janeiro de 2020,\nque o surto da doença causada pelo novo coronavírus (COVID-19)\n");
+    printf("constitui uma Emergência de Saúde Pública de Importância Internacional – o mais alto nível de alerta da\n");
+    printf("Organização, conforme previsto no Regulamento Sanitário Internacional.\n");
+    printf("\tEm 11 de março de 2020, a COVID-19 foi caracterizada pela OMS como uma pandemia.");
+    getchar();
+}
