@@ -13,7 +13,7 @@ typedef struct No covid19;
 typedef struct No* Lista;
 
 struct No {
-    char pais[20];
+    char pais[100];
     int casos;
     int recuperados;
     int obitos;
@@ -29,7 +29,7 @@ void     copia              (covid19, covid19*);
 void     imprimirLista      (covid19*);
 void     mostrarLista       (Lista );
 bool     criarLista         (Lista*);
-covid19* inserir_no_Inicio  (Lista*, covid19);
+void inserir_no_Inicio  (Lista*);
 covid19* inserir_no_Meio    (Lista*, covid19);
 void     inserir_no_Fim     (Lista*, covid19);
 covid19 *removerInicio      (Lista*, covid19);

@@ -59,12 +59,12 @@ void inserir_no_Fim (Lista* lista, covid19 dados) {
     
     static int indice = 0;
     covid19 no[6] = {
-        {   "Espanha", 20000,  8000, 100, 0, NULL },
-        {    "Italia", 30000, 12000, 500, 0, NULL },
-        {    "França", 25000,  9000, 400, 0, NULL },
-        {    "Angola",  2000,   900,  40, 0, NULL },
-        {  "Portugal",  5000,  3000, 150, 0, NULL },
-        {"Cabo Verde",   466,   237,   5, 0, NULL }
+        {   "Espanha_END", 20000,  8000, 100, 0, NULL },
+        {    "Italia_END", 30000, 12000, 500, 0, NULL },
+        {    "França_END", 25000,  9000, 400, 0, NULL },
+        {    "Angola_END",  2000,   900,  40, 0, NULL },
+        {  "Portugal_END",  5000,  3000, 150, 0, NULL },
+        {"Cabo Verde_END",   466,   237,   5, 0, NULL }
         
     };
     
@@ -126,15 +126,68 @@ void mostrarLista (Lista lista) {
         printf ("Lista vazia\n");
         getchar();
         limparTela();
+        return;
     } else {
+        
         limparTela();
         while (no) {
             imprime (*no);
-            puts ("\n\n");
             no = no->prox;
+            puts ("\n\n");
         }
         putchar (10); //\n
+        getchar();
+        limparTela();
+        return;        
+    }
+}
+
+void inserir_no_Inicio (Lista* lista){
+    covid19 *seguinte, *novo;
+    
+    /*criando novo nó*/
+    novo = (covid19*) malloc (sizeof (covid19*));    
+    static int indice = 0;
+    covid19 no[6] = {
+        {   "Espanha_INI", 20000,  8000, 100, 0, NULL },
+        {    "Italia_INI", 30000, 12000, 500, 0, NULL },
+        {    "França_INI", 25000,  9000, 400, 0, NULL },
+        {    "Angola_INI",  2000,   900,  40, 0, NULL },
+        {  "Portugal_INI",  5000,  3000, 150, 0, NULL },
+        {"Cabo Verde_INI",   466,   237,   5, 0, NULL }
+        
+    };
+    
+#if (AUTOFILL == 1)
+    puts ("AUTOFILL.\n");
+    copia (no[indice], novo);
+    indice++;
+    if (indice == 6) {
+        limparTela();
+        puts ("AUTOFILL!: Limite de casos de testes programados 6.");
+        getchar();
+        limparTela();
+        return;
+    }
+#endif
+    //lerDados(&*novo);// imprime(*novo), getchar();
+    
+    /*Se a lista esta vazia inserimos o primeiro nó. Caso contrario inserimos o nó sempre depois do ultimo nó*/
+    if (listaVazia (*lista)) {
+        novo->prox = *lista;
+        *lista = novo;
+        limparTela();        
+        puts ("Primeiro nó inserido.\n");
+        getchar();
+        limparTela();        
+        return;
+    } else {
+        limparTela();
+        puts ("Inserindo ao Inicio.\n");
+        novo->prox = *lista;
+        *lista = novo;
         getchar();
         limparTela();        
     }
 }
+

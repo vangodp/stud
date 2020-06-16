@@ -15,7 +15,7 @@ int main() {
     while (!sair){
         switch (menu()) {
             case 1: informacaoCovid();             break;
-            case 2:                                break;
+            case 2: inserir_no_Inicio(&lista);     break;
             case 3:                                break;
             case 4: inserir_no_Fim(&lista, dados); break;
             case 5: mostrarLista(lista);           break;
